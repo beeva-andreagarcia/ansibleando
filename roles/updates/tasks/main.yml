@@ -1,0 +1,7 @@
+---
+- name: Actualizando el sistema
+  become: true
+  apt: 
+    update_cache: yes
+    upgrade: yes
+
