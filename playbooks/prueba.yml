@@ -1,0 +1,29 @@
+---
+
+- hosts: localhost
+  vars:
+    fichero1: "1"
+    fichero2: "2"
+
+  tasks:
+    - name: "Crear fichero 1 en /tmp"
+      file:
+       path: "/tmp/{{fichero1}}"
+       state: touch
+       mode: 0777
+
+    - name: "Crear fichero 2 en /tmp"
+      file:
+       path: "/tmp/{{fichero2}}"
+       state: touch
+       mode: 0777
+    
+    - name: "Insertamos contenido en el fichero"
+      lineinfile:
+       path: "/tmp/{{fichero1}}"
+       line: "Ola k ase"
+
+    - name: "Insertamos contenido en el fichero 2"
+      lineinfile:
+       path: "/tmp/{{fichero2}}"
+       line: "po aqui andamios"
